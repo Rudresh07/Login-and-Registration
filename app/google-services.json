@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1081169852993",
+    "project_id": "registration-and-signin",
+    "storage_bucket": "registration-and-signin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1081169852993:android:7475d758feb7c8291d64c0",
+        "android_client_info": {
+          "package_name": "com.example.registrationandsignin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1081169852993-ei3pn3t29btnam4q1hh1ro7ddjjsfvh7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYzPaSffv1iJ5oz-_nS8mGTdk2EmZkqgE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1081169852993-ei3pn3t29btnam4q1hh1ro7ddjjsfvh7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
