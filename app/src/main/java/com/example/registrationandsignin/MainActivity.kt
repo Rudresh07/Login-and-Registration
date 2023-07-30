@@ -81,6 +81,8 @@ class MainActivity : AppCompatActivity() {
 
                     startActivity(intent)
 
+                    finish()
+
                 } else {
                     // If it doesn't match, say "Invalid username or password!"
                     Toast.makeText(this@MainActivity, "Invalid username or password", Toast.LENGTH_SHORT).show()
