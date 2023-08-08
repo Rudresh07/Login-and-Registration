@@ -52,7 +52,7 @@ class Signup : AppCompatActivity() {
         val password = binding?.password?.text?.toString()
         val phone = binding?.phone?.text?.toString()
 
-        val userRef = dbRef.child(userName!!)
+        val userRef = dbRef.child(userName!!)//here we set username to be the child node from where data start loading
 
         // Check if the username already exists in the database
         userRef.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -64,7 +64,7 @@ class Signup : AppCompatActivity() {
                     // If the username doesn't exist, save the user's data to the database
                     val user = UserDetails(name, userName, email, password, phone)
 
-                    userRef.setValue(user)
+                    userRef.setValue(user)//here we set user data to database
                         .addOnCompleteListener {
                             Toast.makeText(this@Signup, "Registration successful", Toast.LENGTH_SHORT).show()
 
