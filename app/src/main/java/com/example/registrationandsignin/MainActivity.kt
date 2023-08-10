@@ -88,6 +88,8 @@ class MainActivity : AppCompatActivity() {
                     intent.putExtra("phone", phone)
 
                     startActivity(intent)
+
+                    finish()
                 }
 
                 else

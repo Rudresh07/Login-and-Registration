@@ -22,23 +22,22 @@ class Change_Password : AppCompatActivity() {
 
         setContentView(view)
 
-        var email = binding?.email?.text?.toString()
-        var password = binding?.password?.text?.toString()
-        var Cnfpassword = binding?.CnfPassword?.text?.toString()
-        var phone = binding?.phone?.text?.toString()
-
-        var Emaildb = intent.getStringExtra("email")
-        var Phonedb = intent.getStringExtra("phone")
-        var UserDetail = intent.getStringExtra("username")
-
-        Log.i("Userdetail", UserDetail.toString())
-
         binding?.submit?.setOnClickListener {
 
-            Toast.makeText(this, "you clicked me", Toast.LENGTH_SHORT).show()
+            var email = binding?.email?.text?.toString()
+            var password = binding?.password?.text?.toString()
+            var Cnfpassword = binding?.CnfPassword?.text?.toString()
+            var phone = binding?.phone?.text?.toString()
+
+
+            var Emaildb = intent.getStringExtra("email")
+            var Phonedb = intent.getStringExtra("phone")
+            var UserDetail = intent.getStringExtra("username")
+
 
             if (Emaildb==email && Phonedb==phone)
             {
+
                 if (password!! == Cnfpassword!!)
                 {
 
@@ -48,23 +47,34 @@ class Change_Password : AppCompatActivity() {
 
                 }
             }
+            else{
+                Toast.makeText(this, "Email or Mobile number mismatched", Toast.LENGTH_SHORT).show()
+            }
 
         }
-
-
 
     }
 
     private fun updatePassword(password: String, UserDetail: String?) {
 
+
+
+        val user = mapOf(
+            "password" to password
+        )
+
         dbRef = FirebaseDatabase.getInstance().getReference("User")
-
-
-        dbRef.child(UserDetail!!).child("password").setValue(password).addOnSuccessListener {
+        dbRef.child(UserDetail!!).updateChildren(user).addOnSuccessListener {
             Toast.makeText(this, "Password changed successfully", Toast.LENGTH_SHORT).show()
+
+            binding?.email?.text?.clear()
+            binding?.password?.text?.clear()
+            finish()
         }.addOnCanceledListener {
-            Toast.makeText(this, "database connection error", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Database connection error!!", Toast.LENGTH_SHORT).show()
         }
+
+
 
     }
 

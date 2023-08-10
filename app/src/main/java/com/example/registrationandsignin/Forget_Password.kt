@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import com.example.registrationandsignin.databinding.ActivityForgetPasswordBinding
@@ -62,6 +63,11 @@ class Forget_Password : AppCompatActivity() {
                 intent.putExtra("phone",phone)
                 intent.putExtra("username",userName)
                 startActivity(intent)
+                finish()
+            }
+            else
+            {
+                Toast.makeText(this, "User not exist", Toast.LENGTH_SHORT).show()
             }
 
         }
